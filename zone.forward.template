@@ -1,0 +1,19 @@
+;## NSD authoritative only DNS
+
+$ORIGIN DOMAIN.    ; default zone domain
+$TTL 86400           ; default time to live
+
+@ IN SOA ns1.DOMAIN. admin.DOMAIN. (
+           SERIAL  ; serial number
+           120       ; Refresh
+           120        ; Retry
+           120      ; Expire
+           120       ; Min TTL
+           )
+
+           NS      ns1.DOMAIN.
+           MX      10 mail.DOMAIN.
+
+mail       IN     A    IPADDRESS
+ns1        IN     A    NSHOSTIP
+*          IN     A    IPADDRESS
