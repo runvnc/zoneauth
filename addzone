@@ -1,2 +1,34 @@
-#!/bin/bash
-echo Add zone $1 $2.
+#/bin/bash
+
+usage() {
+  echo "Usage:"
+  echo "addzone <domain> <reverse IP address>"
+}
+
+if [ "$#" -ne 1]; then
+  echo "Wrong number of arguments."
+  usage
+  exit 1
+fi
+
+DOMAIN=$1
+REVIPADDR=$2
+
+descr_zone() {
+  local domain=$1
+  local revipaddr=$2
+  echo -ne "\n\nzone:\n\tname: $domain\n" >>/etc/nsd.conf
+  echo -ne "\tzonefile: $domain.forward\n" >>/etc/nsd.conf
+  echo -ne "\n\nzone:\n\tname: $revipaddr\n" >>/etc/nsd.conf
+  echo -ne "\tzonefile: $revipaddr.reverse\n" >>/etc/nsd.conf
+  nsdc rebuild
+}
+
+
+
+if grep "$DOMAIN\n" /etc/nsd.conf ; then
+  replace_zone $DOMAIN $REVIPADDR
+else
+  add_zone $DOMAIN $REVIPADDR
+fi
+

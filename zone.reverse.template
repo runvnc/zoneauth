@@ -1,18 +1,14 @@
 $ORIGIN DOMAIN.  ; default zone domain
 $TTL 120         ; default time to live
 
-0.0.10.in-addr.arpa. IN SOA ns1.home.lan. admin.home.lan. (
-           2011010203  ; serial number
-           28800       ; Refresh
-           7200        ; Retry
-           864000      ; Expire
-           86400       ; Min TTL
+IPADDRREV.in-addr.arpa. IN SOA ns1.DOMAIN. admin.DOMAIN. (
+           SERIAL  ; serial number
+           120       ; Refresh
+           120        ; Retry
+           120      ; Expire
+           120       ; Min TTL
            )
 
-1.0.0.10.in-addr.arpa.   IN PTR firewall
-2.0.0.10.in-addr.arpa.   IN PTR laptop
-3.0.0.10.in-addr.arpa.   IN PTR xbox360
-4.0.0.10.in-addr.arpa.   IN PTR ps3
-5.0.0.10.in-addr.arpa.   IN PTR dhcp5
-6.0.0.10.in-addr.arpa.   IN PTR mail
-111.0.0.10.in-addr.arpa. IN PTR ns1
+IPADDRREV.in-addr.arpa.   IN PTR www
+IPADDRREV.in-addr.arpa.   IN PTR mail
+NSHOSTIPREV.in-addr.arpa. IN PTR ns1

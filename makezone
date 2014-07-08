@@ -1,0 +1,29 @@
+#!/bin/bash
+
+usage() {
+  echo "Usage: "
+  echo "makezone <domain> <IP address> <nameserver IP addr> <reverse IP addr> <ns IP rev> <serial number>"
+}
+
+if [ "$#" -ne 6 ]; then
+  echo "Wrong number of arguments."
+  usage
+  exit 1
+fi
+
+DOMAIN=$1
+IPADDRESS=$2
+NSHOSTIP=$3
+IPADDRREV=$4
+NSHOSTIPREV=$5
+SERIAL=$6
+
+forward=$(cat zone.forward.template)
+
+forward=${forward/DOMAIN/$DOMAIN}
+forward=${forward/IPADDRESS/$IPADDRESS}
+forward=${forward/NSHOSTIP/$NSHOSTIP}
+forward=${forward/IPADDRREV/$IPADDRREV}
+forward=${forward/NSHOSTIPREV/$NSHOSTIPREV}
+forward=${forward/SERIAL/$SERIAL}
+

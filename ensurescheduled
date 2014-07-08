@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cmd="$1"
+
+if atq -q x | grep x ; then
+  echo "Already scheduled."
+else
+  echo "Not already scheduled. Scheduling"
+  at -q x -m now <<< "$cmd"
+fi
+
+# is this command already scheduled?
+if 
+
+# if no
+# at it to the queue
+# if yes
+# say it is already scheduled
+
+
