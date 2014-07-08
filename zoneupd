@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "'nsdc rebuild'"
+#nsdc rebuild
+
+#nsdc reload
+
+#/etc/init.d/nsd3 restart
+
