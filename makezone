@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./zonelib
+
 usage() {
   echo "Usage: "
   echo "makezone <domain> <IP address> <nameserver IP addr> <reverse IP addr> <ns IP rev> <serial number>"
@@ -14,6 +16,7 @@ fi
 DOMAIN=$1
 IPADDRESS=$2
 NSHOSTIP=$3
+
 IPADDRREV=$4
 NSHOSTIPREV=$5
 SERIAL=$6
