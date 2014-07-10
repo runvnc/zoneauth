@@ -1,0 +1,6 @@
+#!/bin/bash
+while true
+do
+  read cmd
+  echo "Received command $cmd" >> proc.log
+done

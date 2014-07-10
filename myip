@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ ! -f myipaddress ]; then
+  outp=$(ifconfig eth0 | grep inet | awk '{print $2}' | sed 's/addr://')
+  trimmed=${outp//[[:space:]]/}
+  MYIPADDR=$trimmed
+  printf $trimmed>myipaddress
+  printf $trimmed
+else
+  load=$(cat myipaddress)
+  trimmed=${load//[[:space:]]/}
+  printf $trimmed
+fi

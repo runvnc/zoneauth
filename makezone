@@ -1,7 +1,5 @@
 #!/bin/bash
 
-. ./zonelib
-
 usage() {
   echo "Usage: "
   echo "makezone <domain> <IP address> <nameserver IP addr> <reverse IP addr> <ns IP rev> <serial number>"
@@ -15,10 +13,10 @@ fi
 
 DOMAIN=$1
 IPADDRESS=$2
-NSHOSTIP=$3
+NSHOSTIP=$(./myip)
 
-IPADDRREV=$4
-NSHOSTIPREV=$5
+IPADDRREV=$(echo $IPADDRESS | ipv6calc --out revnibbles.arpa) 
+NSHOSTIPREV=$(echo $NSHOSTIP | ipv6calc --out revnibbles.arpa)
 SERIAL=$6
 
 forward=$(cat zone.forward.template)

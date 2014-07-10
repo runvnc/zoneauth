@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y -q update
 RUN mkdir /etc/nsd3/
 RUN touch /etc/nsd3/nsd.conf
-RUN apt-get -y -q install nsd3 ipv6calc
+RUN apt-get -y -q install nsd3 ipv6calc task-spooler
 RUN npm install -g coffee-script
 RUN npm install -g toffee-script
 ADD ./package.json /opt/localserver/
