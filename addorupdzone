@@ -18,15 +18,15 @@ REVIPADDR=${REVIPADDR%?}
 add_zone() {
   echo "Adding zone $1 $2"
   descr=$(./descrzone $1 $2)
-  echo >> /etc/nsd.conf
-  printf "$descr" >> /etc/nsd.conf  
+  echo >> /etc/nsd/nsd.conf
+  printf "$descr" >> /etc/nsd/nsd.conf  
 } 
 
 replace_zone() {
   ./replacezone $1 $2
 }
 
-if grep -q $DOMAIN"$" /etc/nsd.conf ; then
+if grep -q $DOMAIN"$" /etc/nsd/nsd.conf ; then
   echo "Replacing zone."
   replace_zone $DOMAIN $REVIPADDR
 else

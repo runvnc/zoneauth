@@ -28,5 +28,5 @@ forward=${forward//IPADDRREV/$IPADDRREV}
 forward=${forward//NSHOSTIPREV/$NSHOSTIPREV}
 forward=${forward//SERIAL/$SERIAL}
 
-echo "$forward" >/etc/nsd3/$DOMAIN".forward"
+echo "$forward" >/etc/nsd/$DOMAIN".forward"
 
