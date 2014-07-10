@@ -7,4 +7,5 @@ ADD . /opt/localserver
 RUN cd /opt/localserver
 ADD nsd.conf /etc/nsd/
 WORKDIR /opt/localserver
+EXPOSE 53
 CMD "./cmdproc"
