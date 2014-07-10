@@ -1,0 +1,4 @@
+#!/bin/bash
+outp=$(date +%s)
+trimmed=${outp//[[:space:]]/}
+printf $trimmed

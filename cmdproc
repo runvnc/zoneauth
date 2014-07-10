@@ -1,6 +1,16 @@
 #!/bin/bash
-while true
+
+for (( ;; ))
 do
-  read cmd
-  echo "Received command $cmd" >> proc.log
+  nc -d -k -l -p 14239 | while read cmdline
+  do
+    echo "Received command $cmdline"
+    tokens=($cmdline)
+    cmd="${tokens[0]}"
+    case $cmd in
+      domain)
+        tsp ./addorupdzone ${tokens[1]} ${tokens[2]}
+        ;;
+    esac
+  done
 done
