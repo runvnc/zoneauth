@@ -1,4 +1,5 @@
 #!/bin/bash
+service nsd start
 
 for (( ;; ))
 do
