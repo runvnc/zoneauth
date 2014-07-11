@@ -1,7 +1,14 @@
 #!/bin/bash
 ufw allow 22
 ufw allow 53
-ufw enable
-docker run -i -t --name ns_data runvnc/ns "sleep 2147483647"
-docker run --volumes-from ns_data -i -t -p 53:53 -p 53:53/udp -p 14239:14239 runvnc/ns bash
+ufw enable <<<y
+psoutp=$(docker ps -a | grep " ns_data ")
+      
+if [[ -z "$psoutp" ]]; then
+  echo "Need to run data container still."
+  docker run -d --name ns_data runvnc/ns sleep 2147483647
+else
+  echo "Data container running."
+fi
+docker run --volumes-from ns_data -i -t -p 53:53 -p 53:53/udp -p 14239:14239 runvnc/ns
 
