@@ -34,6 +34,6 @@ else
   add_zone $DOMAIN $REVIPADDR
 fi
 
-./makezone $DOMAIN $REVIPADDR
+./makezone $DOMAIN $IPADDR
 ./sched updatezones "./zoneupd" 1
 
