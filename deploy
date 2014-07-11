@@ -1,4 +1,7 @@
 #!/bin/bash
-ufw enable
+ufw allow 22
 ufw allow 53
-docker run -p 53:53 -p 53:53/udp -p 14239:14239 -v /data/nsd:/etc/nsd runvnc/ns
+ufw enable
+docker run -i -t --name ns_data runvnc/ns "sleep 2147483647"
+docker run --volumes-from ns_data -i -t -p 53:53 -p 53:53/udp -p 14239:14239 runvnc/ns bash
+
