@@ -1,0 +1,4 @@
+#!/bin/bash
+ufw enable
+ufw allow 53
+docker run -p 53:53 -p 53:53/udp -p 14239:14239 -v /data/nsd:/etc/nsd runvnc/ns
