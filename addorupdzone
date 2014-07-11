@@ -12,6 +12,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 DOMAIN=$1
+IPADDR=$2
 REVIPADDR=$(echo $2 | ipv6calc --out revnibbles.arpa)
 REVIPADDR=${REVIPADDR%?}
 
