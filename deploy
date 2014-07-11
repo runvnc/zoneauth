@@ -10,5 +10,5 @@ if [[ -z "$psoutp" ]]; then
 else
   echo "Data container running."
 fi
-docker run --volumes-from ns_data -i -t -p 53:53 -p 53:53/udp -p 14239:14239 runvnc/ns
+docker run --volumes-from ns_data -d -p 53:53 -p 53:53/udp -p 14239:14239 runvnc/ns
 
