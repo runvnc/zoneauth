@@ -4,8 +4,8 @@ descr_zone() {
   local revipaddr=$2
   printf "\nzone:\n\tname: $domain\n"
   printf "\tzonefile: $domain.forward\n"
-  printf "\nzone:\n\tname: $revipaddr\n"
-  printf "\tzonefile: $domain.reverse\n"
+  #printf "\nzone:\n\tname: $revipaddr\n"
+  #printf "\tzonefile: $domain.reverse\n"
   printf "#x\n"
 }
 descr_zone $1 $2
