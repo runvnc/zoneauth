@@ -17,4 +17,3 @@ $TTL 86400           ; default time to live
 mail       IN     A    IPADDRESS
 ns1        IN     A    NSHOSTIP
 @          IN     A    IPADDRESS
-*          CNAME     @
