@@ -9,7 +9,7 @@ var descr=execProcess(args)
 
 var nsdconf = readFile("/etc/nsd/nsd.conf")
 
-var tofind = r"\nzone.+\n\tname\:\ " & domain & r"\n(.*)\#x"
+var tofind = r"\nzone.+\n\tname\:\ " & domain & r"\n(.*?)\#x"
 var toreplace = descr
 
 var newconf = nsdconf.replace(re(tofind, {reMultiLine, reDotAll, reExtended, reStudy}), toreplace)
