@@ -1,7 +1,7 @@
 ;## NSD authoritative only DNS
 
 $ORIGIN DOMAIN.    ; default zone domain
-$TTL 86400           ; default time to live
+$TTL 120           ; default time to live
 
 @ IN SOA ns1.DOMAIN. admin.DOMAIN. (
            SERIAL  ; serial number
