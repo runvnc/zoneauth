@@ -12,8 +12,9 @@ $TTL 120           ; default time to live
            )
 
            NS      ns1.DOMAIN.
-           MX      10 mail.DOMAIN.
 
-mail       IN     A    IPADDRESS
 ns1        IN     A    NSHOSTIP
 @          IN     A    IPADDRESS
+
+; __bottom__
+

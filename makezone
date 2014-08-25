@@ -30,3 +30,9 @@ forward=${forward//SERIAL/$SERIAL}
 
 echo "$forward" >/etc/nsd/$DOMAIN".forward"
 
+if [[ -f /etc/nsd/$DOMAIN".add.forward" ]]; then
+  cat /etc/nsd/$DOMAIN".add.forward" >> /etc/nsd/$DOMAIN".forward"
+fi
+
+
+
