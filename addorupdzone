@@ -24,7 +24,7 @@ add_zone() {
 } 
 
 replace_zone() {
-  cp -p nsd.conf nsd.conf.`date +%Y.%m.%d`
+  cp -p /etc/nsd/nsd.conf /etc/nsd/nsd.conf.`date +%Y.%m.%d`
   ./replacezone $1 $2
 }
 
