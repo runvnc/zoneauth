@@ -2,10 +2,11 @@
 descr_zone() {
   local domain=$1
   local revipaddr=$2
+  printf "\n# begin X $domain X\n"
   printf "\nzone:\n\tname: $domain\n"
   printf "\tzonefile: $domain.forward\n"
   #printf "\nzone:\n\tname: $revipaddr\n"
   #printf "\tzonefile: $domain.reverse\n"
-  printf "#x\n"
+  printf "# end X $domain X\n"
 }
 descr_zone $1 $2
