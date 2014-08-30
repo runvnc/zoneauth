@@ -25,7 +25,8 @@ add_zone() {
 
 replace_zone() {
   cp -p /etc/nsd/nsd.conf /etc/nsd/nsd.conf.`date +%Y.%m.%d`
-  ./replacezone $1 $2
+  ./replacebetween "# begin X $DOMAIN X" "# end X $DOMAIN X" "" < /etc/nsd/nsd.conf >nsd.conf
+  add_zone $DOMAIN $REVIPADDR
 }
 
 if grep -q $DOMAIN"$" /etc/nsd/nsd.conf ; then
